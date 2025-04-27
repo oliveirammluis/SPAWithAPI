@@ -1,0 +1,94 @@
+/* Basic reset for the page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Styling for the body */
+  body {
+    font-family: Arial, sans-serif; /* Set the font family */
+    background-color: #f4f4f9; /* Light background color */
+    color: #333; /* Dark text color for contrast */
+  }
+  
+  /* Header styling */
+  header {
+    background-color: #333; /* Dark background for the header */
+    color: #fff; /* White text color */
+    padding: 10px 0; /* Vertical padding */
+  }
+  
+  header nav ul {
+    list-style-type: none; /* Remove default list styling */
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center the navigation items */
+    gap: 20px; /* Add space between items */
+  }
+  
+  header nav ul li {
+    display: inline-block; /* Make the list items inline-blocks */
+  }
+  
+  header nav ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #fff; /* White text color */
+    font-size: 18px; /* Set font size for links */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  header nav ul li a:hover {
+    color: #f39c12; /* Change color on hover */
+  }
+  
+  /* Main content styling */
+  main {
+    padding: 20px; /* Add padding around the content */
+    text-align: center; /* Center the main content */
+  }
+  
+  h1 {
+    font-size: 2rem; /* Set font size for the heading */
+    color: #333; /* Dark text color */
+    margin-bottom: 20px; /* Add space below the heading */
+  }
+  
+  #repo-list {
+    display: flex; /* Use flexbox to display the list of repositories */
+    flex-direction: column; /* Display repos in a column */
+    gap: 15px; /* Add space between each repo item */
+  }
+  
+  /* Styling for each repository item */
+  .repo-item {
+    background-color: #fff; /* White background for repo items */
+    padding: 15px; /* Padding inside each item */
+    border-radius: 5px; /* Rounded corners for the items */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for the items */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+  }
+  
+  .repo-item:hover {
+    transform: scale(1.05); /* Slightly enlarge the item on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance the shadow effect */
+  }
+  
+  /* Responsive design: Make it mobile-friendly */
+  @media (max-width: 600px) {
+    header nav ul {
+      flex-direction: column; /* Stack the navigation items on smaller screens */
+    }
+  
+    header nav ul li {
+      margin-bottom: 10px; /* Add space between the items */
+    }
+  
+    main {
+      padding: 10px; /* Reduce padding for smaller screens */
+    }
+  
+    h1 {
+      font-size: 1.5rem; /* Adjust the heading size for smaller screens */
+    }
+  }
+  
