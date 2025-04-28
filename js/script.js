@@ -1,36 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Styling interaction for the 'home' button
-  const homeButton = document.getElementById('home');
-  homeButton.addEventListener('mouseover', () => {
-    homeButton.style.color = 'red';  // Change color to red on mouseover
-  });
-  homeButton.addEventListener('mouseout', () => {
-    homeButton.style.color = '';  // Reset color on mouseout
-  });
+const fetchButton = document.getElementById('fetch-github');
 
-  // GitHub API integration for the 'fetch-repos' button
-  const fetchReposButton = document.getElementById('fetch-repos');
-  const repoList = document.getElementById('repo-list');
+fetchButton.addEventListener('click', () => {
+  // Pulse animation
+  fetchButton.classList.add('pulse');
 
-  // Add event listener to the 'fetch-repos' button
-  fetchReposButton.addEventListener('click', async () => {
-    try {
-      // Make the API call to GitHub to fetch the repositories
-      const response = await fetch('https://api.github.com/users/oliveirammluis/repos');
-      const repos = await response.json();
-      
-      // Clear the current content in repo list
-      repoList.innerHTML = '';
+  // Remove the pulse class after animation ends
+  setTimeout(() => {
+    fetchButton.classList.remove('pulse');
+  }, 600);
 
-      // Loop through the repositories and display each repo
-      repos.forEach(repo => {
-        const repoItem = document.createElement('div');
-        repoItem.textContent = repo.name;
-        repoList.appendChild(repoItem);  // Append each repo name to the list
-      });
-    } catch (error) {
-      // Handle errors gracefully (e.g., network issues)
-      console.error('Error fetching repositories:', error);
-    }
-  });
+  // GitHub API fetch data
+  fetch('https://api.github.com/users/oliveirammluis')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('github-data').innerHTML = `
+    <p>Name: ${data.name}</p>
+    <p>Bio: ${data.bio}</p>
+    <p>Public Repositores: ${data.public_repos}</p>`;
+  })
+  .catch(error => console.log('Error fetching data:', error));
+  
 });
